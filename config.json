@@ -3,14 +3,16 @@
   "username": "Polymecha",
   "name": "Ichiro",
   "userimg": "https://avatars.githubusercontent.com/u/73960880?v=4",
-  "sort": "created",
+  "sort": "star",
   "order": "asc",
   "includeFork": false,
   "theme": "dark.css",
   "types": [
-   "all"
+   "owner"
   ],
   "twitter": "0YGGDRASIL",
-  "medium": "alandevitt"
+  "medium": "alandevitt",
+  "linkedin": null,
+  "dribbble": "Polymecha"
  }
 ]
