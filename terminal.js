@@ -106,9 +106,7 @@ var Terminal = Terminal || function(cmdLineContainer, outputContainer, config) {
   this.loggedIn = 0; // no. 1 is admin
 
   // add custom functions here
-  this.init = () => {
-    output_('<img align="left" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/CSS3_and_HTML5_logos_and_wordmarks.svg/2000px-CSS3_and_HTML5_logos_and_wordmarks.svg.png" width="250px" height="100px" style="padding: 0px 10px 20px 0px"><h2 style="letter-spacing: 4px">Example Web Terminal</h2><p>' + new Date() + '</p><p>How may I help? Enter \'help\' for Information.</p>');
-    $('.prompt').html(this.prompt);
+  this.init = () => { $('.prompt').html(this.prompt);
   }
 
   this.login = (user, pw) => {
