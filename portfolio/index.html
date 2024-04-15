@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polymecha</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1f1f1f;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .intro h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .intro p {
+            font-size: 18px;
+        }
+
+        .game {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .game-thumbnail {
+            width: 384px;
+            height: 216px;
+            margin-right: 20px;
+        }
+
+        .game-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .game-details {
+            flex: 1;
+        }
+
+        .game-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center; /* Align the icon vertically */
+        }
+
+        .game-title .game-icon {
+            width: 48px;
+            height: 48px;
+            margin-left: 10px; /* Add some space between the icon and the title */
+        }
+
+        .game-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .game-description {
+            margin-bottom: 10px;
+        }
+
+        .play-button {
+            display: inline-block;
+            width: 200px;
+            height: 40px;
+            background-image: url('https://i.imgur.com/ze8f3z6.png');
+            background-size: cover;
+            text-indent: -9999px; /* Hide text */
+            border: none;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="intro">
+        <h1>Polymecha</h1>
+        <p>Here are some games I've made:</p>
+    </div>
+
+    <div class="game">
+        <div class="game-thumbnail">
+            <img src="https://i.imgur.com/6GwUi7i.png" alt="Escapist Thumbnail">
+        </div>
+        <div class="game-details">
+            <div class="game-title">
+                Escapist
+                <div class="game-icon">
+                    <img src="https://i.imgur.com/6qYIW6W.png" alt="Escapist Icon">
+                </div>
+            </div>
+            <div class="game-description">A choice-driven game where you must decide whether to escape or wait while kidnapped, with multiple endings and a focus on managing fear-induced thoughts.</div>
+            <a href="https://www.roblox.com/games/13917070465/Escapist" class="play-button" title="Play Escapist"></a>
+        </div>
+    </div>
+
+    <div class="game">
+        <div class="game-thumbnail">
+            <img src="https://i.imgur.com/7TMQW31.png" alt="Vendetta Thumbnail">
+        </div>
+        <div class="game-details">
+            <div class="game-title">
+                Vendetta
+                <div class="game-icon">
+                    <img src="https://i.imgur.com/EMGkqNp.png" alt="Vendetta Icon">
+                </div>
+            </div>
+            <div class="game-description">a PC-only game that places you in a dilapidated bathroom stall, hunted by unknown beings and armed only with toilet paper for protection.</div>
+            <a href="#" class="play-button" title="Play Vendetta"></a>
+        </div>
+    </div>
+  
+  
+</div>
+
+</body>
+</html>
