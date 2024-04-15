@@ -1,5 +1,49 @@
-<!-- Import the component -->
-<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Viewer Example</title>
+    <!-- Import the component -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #222; /* Dark background color */
+            color: #fff; /* Light text color */
+            position: relative;
+        }
 
-<!-- Use it like any other HTML element -->
-<model-viewer alt="Neil Armstrong's Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum" src="https://github.com/google/model-viewer/raw/master/packages/shared-assets/models/NeilArmstrong.glb" ar environment-image="https://github.com/google/model-viewer/raw/master/packages/shared-assets/environments/moon_1k.hdr" poster="https://github.com/google/model-viewer/raw/master/packages/shared-assets/models/NeilArmstrong.webp" shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+        model-viewer {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        /* Styling for the inconspicuous text */
+        .polymecha {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            font-size: 10px; /* Adjust the font size as needed */
+            opacity: 0.5; /* Adjust the opacity to make it less noticeable */
+        }
+    </style>
+</head>
+<body>
+    <!-- Use it like any other HTML element -->
+    <model-viewer 
+        alt="Neil Armstrong's Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum" 
+        src="https://corsproxy.io/?https://github.com/google/model-viewer/raw/master/packages/shared-assets/models/NeilArmstrong.glb" 
+        ar 
+        environment-image="https://corsproxy.io/?https://github.com/google/model-viewer/raw/master/packages/shared-assets/environments/moon_1k.hdr" 
+        poster="https://github.com/google/model-viewer/raw/master/packages/shared-assets/models/NeilArmstrong.webp" 
+        shadow-intensity="1" 
+        camera-controls 
+        touch-action="pan-y">
+    </model-viewer>
+    <!-- Inconspicuous text -->
+    <div class="polymecha">Polymecha</div>
+</body>
+</html>
