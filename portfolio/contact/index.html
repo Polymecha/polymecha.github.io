@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Polymecha</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1f1f1f;
+            color: #fff;
+        }
+
+        /* Navigation styles */
+        nav {
+            background-color: #333;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Container styles */
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            position: relative; /* Added for footer positioning */
+        }
+
+        /* Intro styles */
+        .intro {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .intro h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .intro p {
+            font-size: 18px;
+        }
+
+        /* Content styles */
+        .content {
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            border: 1px solid #666;
+            border-radius: 5px;
+            background-color: #444;
+            color: #fff;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Footer styles */
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        /* reCAPTCHA styles */
+        .g-recaptcha {
+            margin-bottom: 20px;
+            background-color: #333 !important;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav>
+    <a href="https://polymecha.xyz/portfolio">Home</a>
+    <a href="https://polymecha.xyz/portfolio/about">About</a>
+    <a href="https://polymecha.xyz/portfolio/contact">Contact</a>
+</nav>
+
+<!-- Main Content -->
+<div class="container" id="contact">
+    <div class="intro">
+        <h1>Contact Polymecha</h1>
+        <p>Have questions or feedback? Reach out to us!</p>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="content">
+        <form id="contact-form" method="POST">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+            <!-- reCAPTCHA -->
+            <div class="g-recaptcha" data-sitekey="6LerAL4pAAAAAGtioPXLVRj-kUh_eXOqF972AQMj" data-theme="dark"></div>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <p>Copyright © 2024 Polymecha. All rights reserved.
+</div>
+
+<!-- JavaScript for form submission handling -->
+<script>
+    document.getElementById("contact-form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Prepare form data
+        var formData = new FormData(document.getElementById("contact-form"));
+
+        // Get reCAPTCHA token
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6LerAL4pAAAAAGtioPXLVRj-kUh_eXOqF972AQMj', { action: 'submit' }).then(function(token) {
+                // Append reCAPTCHA token to form data
+                formData.append('g-recaptcha-response', token);
+
+                // Send form data to Formspree endpoint
+                fetch("https://formspree.io/f/mwkgakwb", {
+                    method: "POST",
+                    body: formData,
+                    headers: {
+                        "Accept": "application/json"
+                    }
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Network response was not ok");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Display success message
+                    alert("Your message has been sent successfully!");
+                    // Clear form inputs
+                    document.getElementById("contact-form").reset();
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    alert("An error occurred while sending your message. Please try again later.");
+                });
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
