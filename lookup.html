@@ -8,34 +8,79 @@
         body {
             background-color: #222;
             color: #fff;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            overflow: hidden;
         }
         .container {
             max-width: 600px;
             width: 80%;
-            background-color: #333;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
         }
         a {
-            color: #3498db;
+            color: #fff;
             text-decoration: none;
+            font-weight: bold;
+            padding: 15px 30px;
+            background-color: #3498db;
+            border-radius: 30px;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
         a:hover {
-            text-decoration: underline;
+            background-color: #2980b9;
+        }
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            z-index: -1;
+            animation: wave 20s infinite linear;
+        }
+        @keyframes wave {
+            0% {
+                transform: translateX(0) translateZ(0) scaleY(1)
+            }
+            50% {
+                transform: translateX(-25%) translateZ(0) scaleY(0.5)
+            }
+            100% {
+                transform: translateX(-50%) translateZ(0) scaleY(1)
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <p>If you are not redirected automatically, <a href="https://www.barcodelookup.com/">click here</a>.</p>
+        <h1>Welcome to Barcode Lookup</h1>
+        <p>If you are not redirected automatically, click the button below:</p>
+        <a href="https://www.barcodelookup.com/">Go to Barcode Lookup</a>
+        <svg class="wave" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path fill="#111" d="M0,120L48,112C96,104,192,88,288,101.3C384,115,480,157,576,170.7C672,185,768,171,864,144C960,117,1056,77,1152,64C1248,51,1344,65,1392,72L1440,80L1440,0L1392,0C1344,0,1248,0,1200,0C1152,0,1056,0,960,0C864,0,768,0,672,0C576,0,480,0,384,0C288,0,192,0,96,0L48,0Z"></path>
+        </svg>
     </div>
 </body>
 </html>
