@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Polymecha</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #1e1e1e; /* Dark background color */
-            color: #fff; /* Light text color */
-            font-family: Arial, sans-serif; /* Font family */
+            background: linear-gradient(135deg, #1e1e1e 25%, #333 100%);
+            color: #fff;
+            font-family: 'Raleway', sans-serif;
             padding: 0;
             margin: 0;
         }
@@ -18,36 +19,67 @@
             margin: 50px auto;
             text-align: center;
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.85);
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 1);
         }
 
         .title {
             font-size: 48px;
             line-height: 1.5;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             margin-bottom: 30px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            animation: fadeInDown 1s ease-out;
         }
 
         .note {
             font-size: 20px;
-            line-height: 1.6;
+            line-height: 1.8;
             letter-spacing: 1px;
             margin-bottom: 30px;
             padding: 0 20px;
             text-align: left;
+            animation: fadeInUp 1s ease-out;
         }
 
         .note::first-letter {
             font-size: 150%;
-            color: #ffa500; /* Orange color */
-            bottom: 20px;
+            color: #ffa500;
+            position: relative;
+            bottom: 8px;
         }
 
         .note p {
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
@@ -59,9 +91,8 @@
         <div class="note">
             <p>Uncharted: Drake's Fortune is a great game, the characters and their lines are kind of cheesy, but that's part of why it's good. The interactions between characters are a bit unrealistic, but that adds to the experience of the game.</p>
             <p>It's generally a really fun game though, with a great story and great characters, even with some of the cheesy lines. You should definitely try it if you haven't already, but even if you have, it's enjoyable to replay it. It's definitely a game worth your money.</p>
-            <p>Although I kind of wished it would be available on PC, it wasn't any issue using an emulator to play it.
-          </p>
-      </div>
+            <p>Although I kind of wished it would be available on PC, it wasn't any issue using an emulator to play it.</p>
+        </div>
     </div>
 </body>
 </html>
