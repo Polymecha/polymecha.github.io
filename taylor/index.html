@@ -58,7 +58,43 @@
         a:hover {
             text-decoration: underline;
         }
+        .technicals-container {
+            display: none;
+            background: #2c2c2c;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            border: 1px solid #444;
+        }
+        .technicals-link {
+            display: block;
+            text-align: center;
+            color: #888888;
+            margin-top: 20px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+        .technicals-link:hover {
+            text-decoration: underline;
+            color: #4CAF50;
+        }
+        .note {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #333;
+            border-left: 4px solid #4CAF50;
+            font-size: 1.1em;
+            color: #e0e0e0;
+        }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelector('.technicals-link').addEventListener('click', () => {
+                var techContainer = document.getElementById("technicals-container");
+                techContainer.style.display = techContainer.style.display === "none" ? "block" : "none";
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="container">
@@ -83,6 +119,23 @@
 
         <h2>Get Involved</h2>
         <p>Want to see Taylor in action? Just shoot her a DM! And if you're interested in running your own version of Taylor on your hardware, please add me on Discord, and we can work something out.</p>
+
+        <div class="technicals-link" onclick="toggleTechnicals()">Technicals</div>
+        <div id="technicals-container" class="technicals-container">
+            <h2>Technical Details</h2>
+            <p><strong>LLM Model Used:</strong> LLama3:8b</p>
+            <p><strong>Vision Model Used:</strong> LLava:13b</p>
+            <p><strong>Port used for Hosting:</strong> 11434</p>
+            <p><strong>Datasets used:</strong></p>
+            <ul>
+                <li><a href="https://huggingface.co/huggingartists/taylor-swift" target="_blank">huggingartists/taylor-swift</a></li>
+                <li><a href="https://huggingface.co/datasets/HuggingFaceTB/cosmopedia" target="_blank">HuggingFaceTB/cosmopedia</a></li>
+                <li><a href="https://huggingface.co/datasets/stingning/ultrachat" target="_blank">stingning/ultrachat</a></li>
+            </ul>
+            <div class="note">
+                <strong>NOTE:</strong> Contact me on Discord if you need any more details!
+            </div>
+        </div>
 
         <div class="footer">
             <p>- <a href="https://discordapp.com/users/876849762807210044">@polymecha on Discord</a></p>
