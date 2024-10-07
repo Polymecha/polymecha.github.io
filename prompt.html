@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prompt</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 400px;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            border: 1px solid #333;
+            padding: 10px;
+            resize: none;
+        }
+        button {
+            background-color: #6200EE;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #3700B3;
+        }
+    </style>
+</head>
+<body>
+    <textarea id="scriptText">
+I have a quiz formatted similarly to the one below. Please generate a browser console script that uses the provided answers and automatically selects the correct checkboxes. The script should follow this exact format, where each number corresponds to the correct answer for each question. Use the following template and ensure the same code structure:
+
+```javascript
+// answer key array, where each number corresponds to the correct answer option for each question
+var answerKey = [/* provide the correct answers here in the same format */];
+
+
+function autoSolveQuiz() {
+    answerKey.forEach((answer, questionIndex) => {
+        // find the radio button corresponding to the answer in the answerKey
+        var radioBtn = document.querySelector(`input[name="data[Answer][${questionIndex}][text]"][value="${answer}"]`);
+        if (radioBtn) {
+            radioBtn.checked = true;
+        }
+    });
+autoSolveQuiz();
+```
+
+Please provide the updated script with the correct answers inserted into the `answerKey` array.
+The quiz has the following structure :
+
+
+
+    </textarea>
+
+    <button onclick="copyScript()">Copy</button>
+
+    <script>
+        function copyScript() {
+            var scriptText = document.getElementById("scriptText");
+            scriptText.select();
+            scriptText.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+            alert("Script copied to clipboard!");
+        }
+    </script>
+
+</body>
+</html>
